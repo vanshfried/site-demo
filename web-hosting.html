@@ -52,7 +52,7 @@
     </div>
     <!-- Spinner End -->
     <div class="container-fluid position-relative p-0">
-        <div id="header" class="nav-link" ></div>
+        <div id="header"></div>
 
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
@@ -163,21 +163,7 @@
     <!-- Footer& copyright start -->
     <div data-include="footer.html"></div>
     <!-- Footer& copyright End -->
-    <script>
-        function includeHTML() {
-            const elements = document.querySelectorAll("[data-include]");
-            elements.forEach(async (el) => {
-                const file = el.getAttribute("data-include");
-                const response = await fetch(file);
-                if (response.ok) {
-                    el.innerHTML = await response.text();
-                } else {
-                    el.innerHTML = "Content not found.";
-                }
-            });
-        }
-        window.onload = includeHTML;
-    </script>
+    <div id="footer"></div>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
