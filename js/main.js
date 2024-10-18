@@ -26,6 +26,12 @@
         const currentPage = window.location.pathname.split('/').pop(); // Get the current page name
         $('.navbar-nav a').removeClass('active'); // Remove active class from all links
 
+        // Add active class to the home page link if it's the home page
+        if (currentPage === '' || currentPage === 'index.html') {
+            $('.navbar-nav a[href="index.html"], .navbar-nav a[href=""]').addClass('active'); // Adjust for your home link
+            return; // Exit the function early
+        }
+
         // Add active class to the current page link
         $('.navbar-nav a').each(function () {
             if ($(this).attr('href') === currentPage) {
@@ -53,8 +59,8 @@
 
     // Load header and footer when the document is ready
     $(document).ready(function () {
-        loadHTML('header', 'header.html');
-        loadHTML('footer', 'footer.html');
+        loadHTML('header', 'header.html'); // Load header
+        loadHTML('footer', 'footer.html'); // Load footer
 
         // Spinner
         var spinner = function () {
